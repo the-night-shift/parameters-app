@@ -13,13 +13,6 @@ class PagesController < ApplicationController
     answer = 36
     # user guesses
     user_guess = params["guess"].to_i
-    # i compare that guess to the answer
-    # p "*" * 50
-    # p 'answer'
-    # p answer.class
-    # p 'user_guess'
-    # p user_guess.class
-    # p "*" * 50
     if answer == user_guess
       the_message = "yay"
     elsif answer > user_guess
@@ -31,4 +24,9 @@ class PagesController < ApplicationController
     render json: {message: the_message}
   end
 
+  def segment_params_method
+    the_city = params["city"]
+    the_state = params["state"]
+    render json: {search_city: the_city, search_state: the_state}
+  end
 end
